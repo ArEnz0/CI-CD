@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Inicia Sesión</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+   <!-- Encabezado -->
+   <header class="header">
+    <div class="logo">
+        <img src="/img/lohi.png" alt="Logo de WolfBike" style="height: 50px;"> <!-- Ajusta el tamaño según lo necesites -->
+    </div>
+        <nav class="navbar">
+            <ul>
+             <li><a href="index.html">Inicio</a></li>
+             <li><a href="login.html">Iniciar Sesión</a></li>
+             <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Formulario de inicio de sesión -->
+    <section id="login">
+        <h2>Inicia Sesión</h2>
+        <form action="procesar_login.php" method="post">
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+    </section>
+ 
+    <footer>
+        <p>&copy; 2024 Tu Empresa. Todos los derechos reservados.</p>
+        <p>
+            Síguenos en: 
+            <a href="#">Facebook</a> | 
+            <a href="#">Twitter</a> | 
+            <a href="#">Instagram</a>
+        </p>
+    </footer>
+</body>
+</html>

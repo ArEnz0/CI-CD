@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <!-- Encabezado -->
+    <header class="header">
+        <div class="logo">
+            <img src="ruta_del_logo.png" alt="Logo de WolfBike" style="height: 50px;"> <!-- Ajusta el tamaño según lo necesites -->
+        </div>
+            <nav class="navbar">
+                <ul>
+                 <li><a href="index.html">Inicio</a></li>
+                 <li><a href="login.html">Iniciar Sesión</a></li>
+                 <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+
+
+    <!-- Formulario de contacto -->
+    <section id="contact">
+        <h2>Formulario de Contacto</h2>
+        <form action="enviar_contacto.php" method="post">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Mensaje:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+        <br><br><br>
+    </section>
+   
+    <footer>
+        <p>&copy; 2024 Tu Empresa. Todos los derechos reservados.</p>
+        <p>
+            Síguenos en: 
+            <a href="#">Facebook</a> | 
+            <a href="#">Twitter</a> | 
+            <a href="#">Instagram</a>
+        </p>
+    </footer>
+</body>
+</html>
+

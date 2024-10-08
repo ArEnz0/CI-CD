@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Carrusel de Imágenes</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <!-- Bootstrap CDN para el carrusel -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+  <!-- Encabezado -->
+    <header class="header">
+        <div class="logo">
+            <img src="/img/lohi.png" alt="Logo de WolfBike" style="height: 50px;"> <!-- Ajusta el tamaño según lo necesites -->
+        </div>
+            <nav class="navbar">
+                <ul>
+                 <li><a href="index.html">Inicio</a></li>
+                 <li><a href="login.html">Iniciar Sesión</a></li>
+                 <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+
+    <!-- Carrusel de imágenes -->
+<div id="carouselExample" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="/img/produ1.jpg" class="d-block w-100" alt="Imagen 1">
+            <div class="carousel-caption">
+                <a>Siente la libertad en cada kilómetro</a>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="/img/produ2.jpg" class="d-block w-100" alt="Imagen 2">
+            <div class="carousel-caption">
+                <a>Estilo y potencia, donde quiera que vayas</a>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="/img/produ3.jpg" class="d-block w-100" alt="Imagen 3">
+            <div class="carousel-caption">
+                <a>La aventura comienza con WolfBike</a>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Siguiente</span>
+    </a>
+</div>
+
+    <br><br><br>
+    <footer>
+        <p>&copy; 2024 Tu Empresa. Todos los derechos reservados.</p>
+        <p>
+            Síguenos en: 
+            <a href="#">Facebook</a> | 
+            <a href="#">Twitter</a> | 
+            <a href="#">Instagram</a>
+        </p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
