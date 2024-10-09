@@ -1,35 +1,49 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Datos de la base de datos
-    $servername = "localhost"; // Aquí debes colocar el nombre del servidor o 'localhost'
-    $database = "usuarios"; // Tu nombre de base de datos
-    $username = "root"; // Usuario de la base de datos (no el del formulario)
-    $password = "00root00"; // Contraseña de la base de datos (no la del formulario)
+    $servername = "localhost"; // Servidor MySQL
+    $username = "root"; // Usuario de MySQL
+    $password = ""; // Sin contraseña por defecto en XAMPP
+    $database = "usuarios"; // Nombre de la base de datos
 
-    // Conexión a la base de datos
-    $conn = mysqli_connect($servername, $username, $password, $database);
+    try {
+        // Conexión a la base de datos usando PDO
+        $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
+        // Configurar PDO para lanzar excepciones en caso de error
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    if (!$conn) {
-        die("Conexión fallida: " . mysqli_connect_error());
-    }
+        // Obtener los datos del formulario
+        $user_input = $_POST['username'];
+        $password_input = $_POST['password'];
 
-    // Obteniendo los datos del formulario
-    $user_input = $_POST['username']; // 'username' debería ser el valor 'name' del campo en tu formulario
-    $password_input = $_POST['password']; // 'password' debería ser el valor 'name' del campo en tu formulario
+        // Consulta preparada para evitar inyección SQL
+        $stmt = $conn->prepare("SELECT password FROM usuarios WHERE username = :username");
+        // Asignar el valor del parámetro
+        $stmt->bindParam(':username', $user_input);
+        $stmt->execute();
 
-    // Consulta a la base de datos para verificar si el usuario y la contraseña son correctos
-    $sql = "SELECT * FROM usuarios WHERE username = '$user_input' AND password = '$password_input'";
-    $result = mysqli_query($conn, $sql);
+        // Obtener el resultado
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if (mysqli_num_rows($result) > 0) {
-        // Redirige a la página de contacto después de iniciar sesión exitosamente
-        header("Location: contacto.html");
-        exit();
-    } else {
-        echo "Usuario o contraseña incorrectos. Inténtalo de nuevo.";
+        // Verificar si el usuario existe y la contraseña es correcta
+        if ($row) {
+            // Aquí debes usar `password_verify` si la contraseña está encriptada, pero como estás comparando directamente:
+            if ($password_input === $row['password']) {
+                // Inicio de sesión exitoso, redirigir a la página principal
+                header("Location: index.html");
+                exit();
+            } else {
+                echo "Contraseña incorrecta.";
+            }
+        } else {
+            echo "Usuario no encontrado.";
+        }
+
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
     }
 
     // Cerrar la conexión
-    mysqli_close($conn);
+    $conn = null;
 }
 ?>
